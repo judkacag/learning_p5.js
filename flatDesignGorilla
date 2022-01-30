@@ -1,102 +1,87 @@
-<head>
+const darkBrownMonkey = "#441D10";
+const lightBrownMonkey = "#6E4237";
+const monkeyMouth = "#FBBD98";
+const originalHeight = 400;
+const originalWidth = 400;
 
-<script src="p5.js"></script>
-<script src="p5.dom.js"></script>
+function setup() {
+  createCanvas(420, 475);
+  // helper grid
+  // line(width / 2, 0, width / 2, height);
+  // line(0, height / 2, width, height / 2);
+  background("#DAECFF");
+}
 
-</head>
-<<body>
-
-  <script>
-
-  const darkBrownMonkey = "#441D10";
-  const lightBrownMonkey = "#6E4237";
-  const monkeyMouth = "#FBBD98";
-  const originalHeight = 400;
-  const originalWidth = 400;
-
-  function setup() {
-    createCanvas(420, 475);
-    // helper grid
-    // line(width / 2, 0, width / 2, height);
-    // line(0, height / 2, width, height / 2);
-    background("#DAECFF");
-  }
-
-  function draw() {
-    noStroke();
-    for (let posX = 0; posX < 30; posX++) {
-      for (let posY = 0; posY < 30; posY++) {
-        if (posX % 2 === 0) {
-          fill("#FFF59E");
-          circle(posX * 30 + 15, posY * 30 + 35, 15);
-        } else {
-          fill("#FFFBC8");
-          circle(posX * 30 + 15, posY * 30 + 15, 10);
-        }
+function draw() {
+  noStroke();
+  for (let posX = 0; posX < 30; posX++) {
+    for (let posY = 0; posY < 30; posY++) {
+      if (posX % 2 === 0) {
+        fill("#FFF59E");
+        circle(posX * 30 + 15, posY * 30 + 35, 15);
+      } else {
+        fill("#FFFBC8");
+        circle(posX * 30 + 15, posY * 30 + 15, 10);
       }
-    } // this will create the polkadot background
+    }
+  } // this will create the polkadot background
 
-      fill(darkBrownMonkey);
-      circle((originalWidth / 12) * 2, originalHeight / 3, 75); // left ear
-      rect(30, 275, 120, 180, 20, 100, 0, 100);
-      rect(150, 420, 25, 35, 0, 0, 100, 0);
-      rect(315, 383, 25, 70); // left leg
+  fill(darkBrownMonkey);
+  circle((originalWidth / 12) * 2, originalHeight / 3, 75); // left ear
+  rect(30, 275, 120, 180, 20, 100, 0, 100);
+  rect(150, 420, 25, 35, 0, 0, 100, 0);
+  rect(315, 383, 25, 70); // left leg
 
-      fill("#5F372C");
-      rect(60, 300, 330, 100, 100);
-      rect(340, 383, 25, 70); // body shadow + leg behind
+  fill("#5F372C");
+  rect(60, 300, 330, 100, 100);
+  rect(340, 383, 25, 70); // body shadow + leg behind
 
-      fill(lightBrownMonkey);
-      rect(60, originalHeight / 10, 195, originalHeight * 0.8, 100, 100, 30, 30);
-      rect(60, 300, 330, 75, 100); // upper body
-      circle(265, originalHeight / 3, 75); // right ear
-      arc(100, 50, 100, 80, PI + HALF_PI, HALF_PI); // bigger chunk of hair
-      arc(145, 45, 50, 40, PI + HALF_PI, HALF_PI); // smaller chunk of hair
+  fill(lightBrownMonkey);
+  rect(60, originalHeight / 10, 195, originalHeight * 0.8, 100, 100, 30, 30);
+  rect(60, 300, 330, 75, 100); // upper body
+  circle(265, originalHeight / 3, 75); // right ear
+  arc(100, 50, 100, 80, PI + HALF_PI, HALF_PI); // bigger chunk of hair
+  arc(145, 45, 50, 40, PI + HALF_PI, HALF_PI); // smaller chunk of hair
 
-      fill("white");
-      arc(112, 100, 40, 50, 0, radians(180));
-      arc(140, 100, 40, 50, 0, radians(180)); // eyes
+  fill("white");
+  arc(112, 100, 40, 50, 0, radians(180));
+  arc(140, 100, 40, 50, 0, radians(180)); // eyes
 
-      fill(darkBrownMonkey);
-      circle(265, originalHeight / 3, 35); // right ear center
+  fill(darkBrownMonkey);
+  circle(265, originalHeight / 3, 35); // right ear center
 
-      stroke("black");
-      strokeWeight(8);
-      line(85, 100, 170, 100); //eyebrows
+  stroke("black");
+  strokeWeight(8);
+  line(85, 100, 170, 100); //eyebrows
 
-      strokeWeight(5);
-      point(112, 113);
-      point(140, 113); // eyeballs
+  strokeWeight(5);
+  point(112, 113);
+  point(140, 113); // eyeballs
 
-      noStroke();
-      fill("#F5B596");
-      rect(45, 190, 165, 75, 100);
-      fill(monkeyMouth);
-      rect(45, 190, 165, 60, 100);
-      fill("#FFFFFF");
-      rect(100, 225, 45, 12, 100); // mouth
+  noStroke();
+  fill("#F5B596");
+  rect(45, 190, 165, 75, 100);
+  fill(monkeyMouth);
+  rect(45, 190, 165, 60, 100);
+  fill("#FFFFFF");
+  rect(100, 225, 45, 12, 100); // mouth
 
-      fill("#EA175C");
-      circle(95, 175, 90);
-      circle(160, 175, 90); // cheeks bacground
+  fill("#EA175C");
+  circle(95, 175, 90);
+  circle(160, 175, 90); // cheeks bacground
 
-      fill("#F1425F");
-      ellipse(95, 168, 90, 75);
-      ellipse(160, 168, 90, 75); // cheeks foreground
+  fill("#F1425F");
+  ellipse(95, 168, 90, 75);
+  ellipse(160, 168, 90, 75); // cheeks foreground
 
-      fill("#AA2B40");
-      circle(95, 175, 25);
-      circle(160, 175, 25); // nostrils
+  fill("#AA2B40");
+  circle(95, 175, 25);
+  circle(160, 175, 25); // nostrils
 
-      fill("#8D493F");
-      rect(185, 275, 120, 180, 20, 100, 0, 100);
-      fill(monkeyMouth);
-      rect(305, 420, 25, 35, 0, 0, 100, 0);
-      fill("#955B51");
-      rect(185, 275, 120, 160, 20, 100, 0, 100); // right leg
-  }
-
-
-  </script>
-
-</body>
+  fill("#8D493F");
+  rect(185, 275, 120, 180, 20, 100, 0, 100);
+  fill(monkeyMouth);
+  rect(305, 420, 25, 35, 0, 0, 100, 0);
+  fill("#955B51");
+  rect(185, 275, 120, 160, 20, 100, 0, 100); // right leg
+}
