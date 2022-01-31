@@ -5,7 +5,7 @@ const originalHeight = 400;
 const originalWidth = 400;
 
 function setup() {
-  createCanvas(420, 475);
+  createCanvas(600, 600);
   // helper grid
   // line(width / 2, 0, width / 2, height);
   // line(0, height / 2, width, height / 2);
@@ -25,7 +25,8 @@ function draw() {
       }
     }
   } // this will create the polkadot background
-
+  
+  translate(90, 65);
   fill(darkBrownMonkey);
   circle((originalWidth / 12) * 2, originalHeight / 3, 75); // left ear
   rect(30, 275, 120, 180, 20, 100, 0, 100);
