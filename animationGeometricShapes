@@ -57,3 +57,7 @@ function makeRectangle(xPos, yPos, rectWidth, rectHeight) {
   rect(x, y, w, h);
   t += increment;
 }
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
