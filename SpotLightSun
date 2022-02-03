@@ -1,0 +1,27 @@
+// Stores diagnal distance across the canvas
+let canvas_dist;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  noStroke();
+  canvas_dist = dist(0, 0, width, height);
+  
+}
+
+function draw() {
+  // White background with 40 opacity
+  background(255, 232, 124, 40);
+
+  // Nested for loops tp draw a grid of ellipses
+  for (let i = 0; i <= width; i += 10) {
+    for (let j = 0; j <= height; j += 10) {
+      // Calculate the distance between mouse position and each ellipse's position
+      let size = dist(mouseX, mouseY, i, j);
+      // Reassign size to be proportional to the size of the canvas
+      size = (size / canvas_dist) * 80
+      // Draws set of black ellipses 10 px from each other - further from the canvas the bigger the size
+      fill(35);
+      ellipse(i, j, size, size);
+    }
+  }
+}
