@@ -1,0 +1,62 @@
+let x, y;
+let speedX, speedY;
+let alphaVal = 70;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(30, 30);
+  // TODO: Randomize variables used to draw shapes
+  x = random(0, width);
+  y = random(0, height);
+  alphaVal = random(10, 100)
+  speedX = random(-2, 2);
+  speedY = random(-2, 2);
+}
+
+function draw() {
+  if (keyIsPressed && key != ' ') {
+    if (key === 'a') {
+      parametricLines();
+    }
+  }
+}
+
+function keyPressed() {
+  if (key != ' ') {
+    if (keyCode === 13) {
+      saveCanvas('canvas-' + frameCount, 'jpg');
+    }
+  } else {
+    clear();
+    background(30, 30);
+  }
+}
+
+function keyReleased() {
+  x = random(0, width);
+  y = random(0, height);
+  speedX = random(-2, 2);
+  speedY = random(-2, 2);
+}
+
+function parametricLines() {
+  push();
+  translate(x, y);
+  let rotation = map(x, 0, height, 0, TWO_PI);
+  rotate(rotation);
+  stroke(map(y, 0, width, 50, 176), map(x, 0, width, 50, 176), 176, alphaVal);
+  line(-200, 0, 200, x);
+
+  x = x + speedX;
+  y = y + speedY;
+
+  // Make sure that the lines don't go beyond the canvas width
+  if (x > width || x < 0) {
+    speedX = -speedX;
+  }
+  // Make sure that the lines don't go beyond the canvas height
+  if (y > height || y < 0) {
+    speedY = -speedY;
+  }
+  pop();
+}
