@@ -21,7 +21,7 @@ function draw() {
       size = (size / canvas_dist) * 80
       // Draws set of black ellipses 10 px from each other - further from the canvas the bigger the size
       fill(35);
-      ellipse(i, j, size, size);
+      ellipse(i, j+3, size, size);
     }
   }
 }
