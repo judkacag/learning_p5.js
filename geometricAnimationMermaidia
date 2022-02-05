@@ -1,0 +1,66 @@
+let t;
+let increment = 0.0005;
+let alphaVal = 90;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  strokeWeight(2);
+  noFill();
+  ellipseMode(CENTER);
+  rectMode(CENTER);
+  t = 0;
+}
+
+function draw() {
+  background(0, 10);
+
+  makeRectangle(30, 100, 200, 10);
+  makeRectangle(50, 70, 150, 80);
+  makeRectangle(200, 5, 45, 45);
+
+  makeCircle(50, 1, 1);
+  makeCircle(150, 20, 10);
+  makeCircle(350, 50, 150);
+
+  makeTriangle(100, 20, 100, 400, 800, 400);
+  makeTriangle(40, 450, 290, 40, 540, 450);
+}
+
+function makeTriangle(xt1, yt1, xt2, yt2, xt3, yt3) {
+  let x1 = width * noise(t + xt1);
+  let y1 = height * noise(t + yt1);
+  let x2 = width * noise(t + xt2);
+  let y2 = height * noise(t + yt2);
+  let x3 = width * noise(t + xt3);
+  let y3 = height * noise(t + yt3);
+  
+  stroke(map(y1, 0, width, 50, 176), map(x1, 0, width, 50, 176), 176, alphaVal)
+  triangle(x1, y1, x2, y2, x3, y3);
+
+  t += increment;
+}
+
+function makeCircle(xPos, yPos, circleSize) {
+  let x = width * noise(t + xPos);
+  let y = height * noise(t + yPos);
+  let size = width * noise(t + circleSize);
+  
+  stroke(map(y, 0, width, 50, 176), map(x, 0, width, 50, 176), 176, alphaVal)
+  circle(x, y, size);
+  t += increment;
+}
+
+function makeRectangle(xPos, yPos, rectWidth, rectHeight) {
+  let x = width * noise(t + xPos);
+  let y = height * noise(t + yPos);
+  let w = width * noise(t + rectWidth);
+  let h = width * noise(t + rectHeight);
+  
+  stroke(map(x, 0, width, 50, 176), map(y, 0, width, 50, 176), 176, alphaVal)
+  rect(x, y, w, h);
+  t += increment;
+}
+
+function windowResized() {
+    reeCanvas(windowWidth, windowHeight);
+  }
